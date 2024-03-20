@@ -22,6 +22,8 @@ const PollPage = () => {
     useEffect(() => {
         dispatch(QuestionActions.getQuestions()).then((res) => {
             const question = Object.values(res.payload).find((question) => question.id === questionId);
+            if(!question) navigate({ pathname: '/404'})
+            
             setQuestion(question);
 
             const hasVotedForOptionOneTemp = question?.optionOne?.votes.includes(userInfo.id);

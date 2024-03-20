@@ -7,6 +7,7 @@ import New from './components/subTab/New';
 import Home from './components/subTab/Home';
 import Leaderboard from './components/subTab/Leaderboard';
 import PollPage from './components/subTab/PollPage';
+import NotFound from './components/404';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
           <Header />
           <PollPage />
         </PrivateRouter>} />
+
+        <Route path="/404" element={<NotFound />} />
       </Routes>
     </div>
   );
