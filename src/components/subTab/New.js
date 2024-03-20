@@ -6,7 +6,7 @@ import { setQuestionUser } from "../../redux/slice/auth.slice";
 const New = () => {
     const dispatch = useDispatch();
 
-    const { userInfo, users } = useSelector((state) => state.auth);
+    const { userInfo } = useSelector((state) => state.auth);
     const [firstOption, setFirstOption] = useState('');
     const [secondOption, setSecondOption] = useState('');
 
