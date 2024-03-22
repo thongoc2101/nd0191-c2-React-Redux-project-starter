@@ -22,7 +22,7 @@ const PollPage = () => {
     useEffect(() => {
         dispatch(QuestionActions.getQuestions()).then((res) => {
             const question = Object.values(res.payload).find((question) => question.id === questionId);
-            if(!question) navigate({ pathname: '/404'})
+            if (!question) navigate({ pathname: '/404' })
 
             setQuestion(question);
 
@@ -41,7 +41,7 @@ const PollPage = () => {
         navigate("/");
     };
 
-    const calcPercentage = (option, question) => {
+    const calcVotes = (option, question) => {
         const numberVotesTotal = question.optionOne.votes.length + question.optionTwo.votes.length;
         switch (option) {
             case "optionOne":
@@ -57,7 +57,7 @@ const PollPage = () => {
         return (
             <>
                 {!hasVoted && <p className="bg-sky-500 rounded-md">Click</p>}
-                {hasVoted && <p className="text-xs">Votes: {numberVotes} ({calcPercentage(option, question)})</p>}
+                {hasVoted && <p className="text-xs">Votes: {numberVotes} ({calcVotes(option, question)})</p>}
             </>
         )
     }
@@ -79,18 +79,16 @@ const PollPage = () => {
                 <button
                     onClick={(e) => handleChangeOption(e, 'optionOne')}
                     disabled={hasVoted}
-                    className={"p-2 rounded-xl bg-white hover:shadow-xl border border-solid" + (hasVotedForOptionOne ? "bg-lime-400" : "")}>
-                    <div className={hasVotedForOptionOne ? "chosen" : ""}>
-                        <p className="mb-2">{question?.optionOne?.text}</p>
-                        {renderTemplateVoted(question, question?.optionOne?.votes.length, "optionOne")}
-                    </div>
+                    className={"p-2 rounded-xl bg-white border border-solid" + (hasVotedForOptionOne ? " bg-lime-500" : "")}>
+                    <p className="mb-2">{question?.optionOne?.text}</p>
+                    {renderTemplateVoted(question, question?.optionOne?.votes.length, "optionOne")}
                 </button>
 
                 {/* button option two */}
                 <button
                     onClick={(e) => handleChangeOption(e, 'optionTwo')}
                     disabled={hasVoted}
-                    className={"p-2 rounded-xl bg-white hover:shadow-xl border border-solid" + (hasVotedForOptionTwo ? "bg-lime-400" : "")}>
+                    className={"p-2 rounded-xl bg-white border border-solid" + (hasVotedForOptionTwo ? " bg-lime-500" : "")}>
                     <p className="mb-2">{question?.optionTwo?.text}</p>
                     {renderTemplateVoted(question, question?.optionTwo?.votes.length, "optionTwo")}
                 </button>

@@ -18,7 +18,7 @@ const Home = () => {
         return (
             <Link to={'questions/' + question.id}>
                 <div className="w-full m-1 rounded-xl bg-white mx-auto items-center border border-solid">
-                    <div className="text-xl font-medium text-black">{question.author}</div>
+                    <div className="text-xl font-bold">{question.author}</div>
                     <div className="text-xs italic mb-2">{new Date(question.timestamp).toDateString()}</div>
                     <div>
                         <button type="button" className="text-lime-500">Show</button>
@@ -31,7 +31,7 @@ const Home = () => {
     return (
         <div className="p-6">
             <h3 className="text-xl font-bold mt-6">New Questions</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
                 {questions
                     .filter((question) => (!question.optionOne.votes.includes(userInfo.id)
                         && !question.optionTwo.votes.includes(userInfo.id)))
@@ -43,7 +43,7 @@ const Home = () => {
             </div>
 
             <h3 className="text-xl font-bold mt-6">Done</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
                 {questions
                     .filter((question) => (question.optionOne.votes.includes(userInfo.id)
                         || question.optionTwo.votes.includes(userInfo.id)))

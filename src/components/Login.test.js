@@ -19,10 +19,10 @@ describe("Login", () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('should clear input elements after clicking submit button', async () => {
+    it('click submit button', async () => {
         await store.dispatch(AuthActions.getUsers());
 
-        const wrapper = render(
+        const component = render(
             <Provider store={store}>
                 <BrowserRouter>
                     <Login/>
@@ -30,9 +30,9 @@ describe("Login", () => {
             </Provider>
         );
 
-        const usernameInputElement = wrapper.getByTestId("username");
-        const passwordInputElement = wrapper.getByTestId("password");
-        const submitButtonElement = wrapper.getByTestId("submit");
+        const usernameInputElement = component.getByTestId("username");
+        const passwordInputElement = component.getByTestId("password");
+        const submitButtonElement = component.getByTestId("submit");
         expect(usernameInputElement).toBeInTheDocument();
         expect(passwordInputElement).toBeInTheDocument();
         expect(submitButtonElement).toBeInTheDocument();

@@ -7,7 +7,7 @@ const Leaderboard = () => {
     return (
         <div className="p-6">
             <table className="w-full text-sm">
-                <thead className="border-collapse table-auto table-header-group">
+                <thead className="table-auto">
                     <tr className="table-row">
                         <th className="border border-solid bg-gray-200 text-left pl-4">Users</th>
                         <th className="border border-solid bg-gray-200">Answered</th>
