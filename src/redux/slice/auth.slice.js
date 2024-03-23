@@ -35,6 +35,23 @@ export const AuthSlice = createSlice({
                 ...state.users,
                 [userItem.id]: userItem
             }
+        },
+
+        setUserAnswer: (state, action) => {
+            const authedUser = action.payload.authedUser;
+            const answer = action.payload.answer;
+            const qid = action.payload.id;
+
+            state.users = {
+                ...state.users,
+                [authedUser]: {
+                  ...state.users[authedUser],
+                  answers: {
+                    ...state.users[authedUser].answers,
+                    [qid]: answer
+                  }
+                }
+              }
         }
     },
     extraReducers: (builder) => {
@@ -45,4 +62,4 @@ export const AuthSlice = createSlice({
     }
 });
 
-export const { login, logout, setQuestionUser } = AuthSlice.actions;
+export const { login, logout, setQuestionUser, setUserAnswer } = AuthSlice.actions;

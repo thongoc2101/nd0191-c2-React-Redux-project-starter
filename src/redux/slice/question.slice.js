@@ -10,13 +10,20 @@ export const QuestionSlice = createSlice({
     initialState: initialState,
     reducers: {
         setAnsweredUser: (state, action) => {
-            const questionItem = Object.values(state.questions).find(user => user.id === action.payload.id);
-            questionItem[action.payload.answer].votes.push(action.payload.id);
+            const qid = action.payload.id;
+            const answer = action.payload.answer;
+            const authedUser = action.payload.authedUser;
 
             state.questions = {
                 ...state.questions,
-                [questionItem.id]: questionItem
-            }
+                [qid]: {
+                  ...state.questions[qid],
+                  [answer]: {
+                    ...state.questions[qid][answer],
+                    votes: state.questions[qid][answer].votes.push(authedUser)
+                  }
+                }
+              }
         }
     },
     extraReducers: (builder) => {

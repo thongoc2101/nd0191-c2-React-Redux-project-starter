@@ -2,16 +2,27 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { QuestionActions } from "../../redux/actions/question.action";
 import { setQuestionUser } from "../../redux/slice/auth.slice";
+import { useNavigate } from "react-router-dom";
 
 const New = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { userInfo } = useSelector((state) => state.auth);
     const [firstOption, setFirstOption] = useState('');
     const [secondOption, setSecondOption] = useState('');
 
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+
     const onSubmit = (e) => {
         e.preventDefault();
+
+        // Check for unique question options. Both options should not be the same.
+        if (firstOption === secondOption) {
+            setShowErrorMessage(true);
+            return;
+        }
+
         dispatch(QuestionActions.addQuestion({
             optionOneText: firstOption,
             optionTwoText: secondOption,
@@ -20,6 +31,7 @@ const New = () => {
             setFirstOption('');
             setSecondOption('');
             dispatch(setQuestionUser(res.payload));
+            navigate({ pathname: '/' });
         });
     };
 
@@ -39,6 +51,7 @@ const New = () => {
                         type="text"
                         name="firstOption"
                         id="firstOption"
+                        maxLength={255}
                         className={inputStyle} />
                 </div>
 
@@ -51,12 +64,19 @@ const New = () => {
                         type="text"
                         name="secondOption"
                         id="secondOption"
+                        maxLength={255}
                         className={inputStyle} />
                 </div>
 
+                {showErrorMessage &&
+                    <div className="mt-3 text-left">
+                        <span className="text-red-600">Both options should not be the same</span>
+                    </div>
+                }
+
                 <div className="mt-5 text-right">
-                    <button type="submit"
-                        className="bg-sky-500 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
+                    <button type="submit" disabled={!firstOption || !secondOption}
+                        className="bg-sky-500 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white disabled:bg-slate-500 disabled:text-white disabled:cursor-not-allowed">
                         Submit
                     </button>
                 </div>

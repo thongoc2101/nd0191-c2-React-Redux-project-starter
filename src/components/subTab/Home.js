@@ -14,12 +14,32 @@ const Home = () => {
         });
     }, [dispatch]);
 
+    const calcVotes = (option, question) => {
+        const numberVotesTotal = question.optionOne.votes.length + question.optionTwo.votes.length;
+        switch (option) {
+            case "optionOne":
+                return (question.optionOne.votes.length > 0 ? parseFloat(question.optionOne.votes.length / numberVotesTotal * 100).toFixed(1) : 0) + "%";
+            case "optionTwo":
+                return (question.optionTwo.votes.length > 0 ? parseFloat(question.optionTwo.votes.length / numberVotesTotal * 100).toFixed(1) : 0) + "%";
+            default:
+                return "";
+        }
+    };
+
     const renderTemplate = (question) => {
         return (
             <Link to={'questions/' + question.id}>
                 <div className="w-full m-1 rounded-xl bg-white mx-auto items-center border border-solid">
                     <div className="text-xl font-bold">{question.author}</div>
                     <div className="text-xs italic mb-2">{new Date(question.timestamp).toDateString()}</div>
+                    <div className="text-xs italic mb-2">
+                        <span className="font-bold">Option one: </span>
+                        {question?.optionOne?.text} : {calcVotes('optionOne', question)}
+                    </div>
+                    <div className="text-xs italic mb-2">
+                        <span className="font-bold">Option second: </span>
+                        {question?.optionTwo?.text} : {calcVotes('optionTwo', question)}
+                    </div>
                     <div>
                         <button type="button" className="text-lime-500">Show</button>
                     </div>
@@ -35,6 +55,7 @@ const Home = () => {
                 {questions
                     .filter((question) => (!question.optionOne.votes.includes(userInfo.id)
                         && !question.optionTwo.votes.includes(userInfo.id)))
+                    .sort((a, b) => (b.timestamp - a.timestamp))
                     .map((question) => (
                         <div key={question.id}>
                             {renderTemplate(question)}
@@ -47,6 +68,7 @@ const Home = () => {
                 {questions
                     .filter((question) => (question.optionOne.votes.includes(userInfo.id)
                         || question.optionTwo.votes.includes(userInfo.id)))
+                    .sort((a, b) => (b.timestamp - a.timestamp))
                     .map((question) => (
                         <div key={question.id}>
                             {renderTemplate(question)}

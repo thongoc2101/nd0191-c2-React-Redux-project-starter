@@ -30,6 +30,9 @@ describe("Login", () => {
             </Provider>
         );
 
+        expect(component).toBeDefined();
+        expect(component).toMatchSnapshot();
+
         const usernameInputElement = component.getByTestId("username");
         const passwordInputElement = component.getByTestId("password");
         const submitButtonElement = component.getByTestId("submit");

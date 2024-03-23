@@ -1,3 +1,34 @@
+Employee Polls Project
+
+This is the starter code for the final assessment project for Udacity's React & Redux course.
+The _DATA.js file represents a fake database and methods that let you access the data. 
+
+------- Data ---------
+There are two types of objects stored in database:
+1. Users
+2. Questions
+
+-------- Your code will talk to the database via 4 methods: -------
+1. _getUsers() Method
+Description: Get all of the existing users from the database.
+Return Value: Object where the key is the user’s id and the value is the user object.
+
+2. _getQuestions() Method
+Description: Get all of the existing questions from the database.
+Return Value: Object where the key is the question’s id and the value is the question object.
+
+3. _saveQuestion(question) Method
+Description: Save the polling question in the database. If one of the parameters are missing, an error is thrown. Parameters: Object that includes the following properties: author, optionOneText, and optionTwoText. 
+
+4. _saveQuestionAnswer(object) Method
+Description: Save the answer to a particular polling question in the database. If one of the parameters are missing, an error is thrown. Parameters: Object that contains the following properties: authedUser, qid, and answer. 
+
+------- Installation --------
+Run npm install to download all dependencies.
+
+Available Scripts
+In the project directory, you can run:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -23,48 +54,3 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

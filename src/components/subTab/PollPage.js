@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { QuestionActions } from "../../redux/actions/question.action";
 import { useEffect, useState } from "react";
 import { setAnsweredUser } from "../../redux/slice/question.slice";
+import { setUserAnswer } from "../../redux/slice/auth.slice";
 
 const PollPage = () => {
     const dispatch = useDispatch();
@@ -37,8 +38,15 @@ const PollPage = () => {
 
     const handleChangeOption = (e, optionChoose) => {
         e.preventDefault();
-        dispatch(setAnsweredUser({ id: question.id, answer: optionChoose }));
-        navigate("/");
+        dispatch(QuestionActions.saveQuestionAnswer({
+            qid: question.id, answer: optionChoose, authedUser: userInfo.id
+        })).then((res) => {
+            if (res) {
+                dispatch(setAnsweredUser({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
+                dispatch(setUserAnswer({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
+                navigate("/");
+            }
+        })
     };
 
     const calcVotes = (option, question) => {
@@ -64,7 +72,7 @@ const PollPage = () => {
 
     return (
         <div className="poll-page-information">
-            <h1 className="text-2xl font-bold mt-9">Poll by {userInfo.id}</h1>
+            <h1 className="text-2xl font-bold mt-9">Poll by {question?.author}</h1>
 
             <div className="flex justify-center">
                 <img src={userInfo.avatarURL} alt="" className="h-20 w-20" />

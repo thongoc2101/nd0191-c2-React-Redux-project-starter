@@ -17,7 +17,7 @@ const Header = () => {
             <div className="left-information">
                 <Link to="/" className="font-medium px-3 py-2 text-slate-700 rounded-md">Home</Link>
                 <Link to="/leaderboard" className="font-medium px-3 py-2 text-slate-700 rounded-md">Leaderboard</Link>
-                <Link to="/new" className="font-medium px-3 py-2 text-slate-700 rounded-md">New</Link>
+                <Link to="/add" className="font-medium px-3 py-2 text-slate-700 rounded-md">New</Link>
             </div>
 
             <div className="right-information">
