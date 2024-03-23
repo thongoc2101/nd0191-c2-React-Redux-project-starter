@@ -7,6 +7,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const [questions, setQuestions] = useState([]);
     const { userInfo } = useSelector((state) => state.auth);
+    const [isShowAnswerDone, setIsShowAnswerDone] = useState(false);
 
     useEffect(() => {
         dispatch(QuestionActions.getQuestions()).then((res) => {
@@ -48,33 +49,53 @@ const Home = () => {
         );
     };
 
+    const handleSwitchButton = () => {
+        setIsShowAnswerDone(!isShowAnswerDone);
+    }
+
     return (
         <div className="p-6">
-            <h3 className="text-xl font-bold mt-6">New Questions</h3>
-            <div className="grid grid-cols-2 gap-4">
-                {questions
-                    .filter((question) => (!question.optionOne.votes.includes(userInfo.id)
-                        && !question.optionTwo.votes.includes(userInfo.id)))
-                    .sort((a, b) => (b.timestamp - a.timestamp))
-                    .map((question) => (
-                        <div key={question.id}>
-                            {renderTemplate(question)}
-                        </div>
-                    ))}
+            <div className="mb-3 text-right">
+                <button
+                    type="button"
+                    className="border border-solid w-[240px] rounded-md text-white bg-blue-300"
+                    onClick={handleSwitchButton}
+                >Switch to {isShowAnswerDone ? 'unanswered' : 'answered'} poll
+                </button>
             </div>
+            {!isShowAnswerDone && (
+                <>
+                    <h3 className="text-xl font-bold mt-6">New Questions</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                        {questions
+                            .filter((question) => (!question.optionOne.votes.includes(userInfo.id)
+                                && !question.optionTwo.votes.includes(userInfo.id)))
+                            .sort((a, b) => (b.timestamp - a.timestamp))
+                            .map((question) => (
+                                <div key={question.id}>
+                                    {renderTemplate(question)}
+                                </div>
+                            ))}
+                    </div>
+                </>
+            )}
 
-            <h3 className="text-xl font-bold mt-6">Done</h3>
-            <div className="grid grid-cols-2 gap-4">
-                {questions
-                    .filter((question) => (question.optionOne.votes.includes(userInfo.id)
-                        || question.optionTwo.votes.includes(userInfo.id)))
-                    .sort((a, b) => (b.timestamp - a.timestamp))
-                    .map((question) => (
-                        <div key={question.id}>
-                            {renderTemplate(question)}
-                        </div>
-                    ))}
-            </div>
+            {isShowAnswerDone && (
+                <>
+                    <h3 className="text-xl font-bold mt-6">Done</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                        {questions
+                            .filter((question) => (question.optionOne.votes.includes(userInfo.id)
+                                || question.optionTwo.votes.includes(userInfo.id)))
+                            .sort((a, b) => (b.timestamp - a.timestamp))
+                            .map((question) => (
+                                <div key={question.id}>
+                                    {renderTemplate(question)}
+                                </div>
+                            ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 }

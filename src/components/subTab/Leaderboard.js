@@ -16,16 +16,19 @@ const Leaderboard = () => {
                 </thead>
                 <tbody>
                     {/* Map over the user info and generate table rows */}
-                    {Object.values(users)?.map((user) => (
-                        <tr key={user.id}>
-                            <td className="border border-solid text-left pl-4">
-                                <div className="text-sm font-bold">{user.name}</div>
-                                <div className="text-xs">{user.id}</div>
-                            </td>
-                            <td className="border border-solid">{Object.values(user.answers).length}</td>
-                            <td className="border border-solid">{user.questions.length}</td>
-                        </tr>
-                    ))}
+                    {Object.values(users)
+                        ?.sort((a, b) => (
+                            (Object.values(b.answers).length + b.questions.length) - (Object.values(a.answers).length + a.questions.length)))
+                        .map((user) => (
+                            <tr key={user.id}>
+                                <td className="border border-solid text-left pl-4">
+                                    <div className="text-sm font-bold">{user.name}</div>
+                                    <div className="text-xs">{user.id}</div>
+                                </td>
+                                <td className="border border-solid">{Object.values(user.answers).length}</td>
+                                <td className="border border-solid">{user.questions.length}</td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
         </div>

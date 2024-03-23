@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { QuestionActions } from "../../redux/actions/question.action";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { setAnsweredUser } from "../../redux/slice/question.slice";
 import { setUserAnswer } from "../../redux/slice/auth.slice";
 
@@ -19,8 +19,7 @@ const PollPage = () => {
     const [hasVotedForOptionTwo, setHasVotedForOptionTwo] = useState(false);
     const [hasVoted, setHasVoted] = useState(false);
 
-    // init data
-    useEffect(() => {
+    const getQuestionsInfo = useCallback(() => {
         dispatch(QuestionActions.getQuestions()).then((res) => {
             const question = Object.values(res.payload).find((question) => question.id === questionId);
             if (!question) navigate({ pathname: '/404' })
@@ -44,7 +43,7 @@ const PollPage = () => {
             if (res) {
                 dispatch(setAnsweredUser({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
                 dispatch(setUserAnswer({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
-                navigate("/");
+                getQuestionsInfo();
             }
         })
     };
@@ -70,6 +69,11 @@ const PollPage = () => {
         )
     }
 
+    // init data
+    useEffect(() => {
+        getQuestionsInfo();
+    }, [getQuestionsInfo]);
+
     return (
         <div className="poll-page-information">
             <h1 className="text-2xl font-bold mt-9">Poll by {question?.author}</h1>
@@ -87,7 +91,7 @@ const PollPage = () => {
                 <button
                     onClick={(e) => handleChangeOption(e, 'optionOne')}
                     disabled={hasVoted}
-                    className={"p-2 rounded-xl bg-white border border-solid" + (hasVotedForOptionOne ? " bg-lime-500" : "")}>
+                    className={"p-2 rounded-xl bg-white border border-solid" + (hasVotedForOptionOne ? " !bg-lime-500" : "")}>
                     <p className="mb-2">{question?.optionOne?.text}</p>
                     {renderTemplateVoted(question, question?.optionOne?.votes.length, "optionOne")}
                 </button>
@@ -96,7 +100,7 @@ const PollPage = () => {
                 <button
                     onClick={(e) => handleChangeOption(e, 'optionTwo')}
                     disabled={hasVoted}
-                    className={"p-2 rounded-xl bg-white border border-solid" + (hasVotedForOptionTwo ? " bg-lime-500" : "")}>
+                    className={"p-2 rounded-xl bg-white border border-solid" + (hasVotedForOptionTwo ? " !bg-lime-500" : "")}>
                     <p className="mb-2">{question?.optionTwo?.text}</p>
                     {renderTemplateVoted(question, question?.optionTwo?.votes.length, "optionTwo")}
                 </button>
