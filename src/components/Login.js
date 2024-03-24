@@ -29,7 +29,7 @@ function Login() {
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="w-full px-6 py-8 rounded-md">
-                <h2 className="text-2xl font-bold mb-8">Employee Polls</h2>
+                <h2 className="text-2xl font-bold mb-8" data-testid="login-header">Employee Polls</h2>
                 <form>
                     <div>
                         <label htmlFor="username" className="text-sm font-semibold">Username</label>

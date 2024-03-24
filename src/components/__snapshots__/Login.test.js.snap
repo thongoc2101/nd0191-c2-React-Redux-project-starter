@@ -1,71 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should render the component 1`] = `
+exports[`Login click submit button 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col items-center justify-center bg-gray-100"
+        class="flex flex-col items-center justify-center"
       >
         <div
-          class="w-full px-6 py-8 bg-white rounded-md"
+          class="w-full px-6 py-8 rounded-md"
         >
           <h2
             class="text-2xl font-bold mb-8"
+            data-testid="login-header"
           >
             Employee Polls
           </h2>
-          <form
-            class="space-y-4"
-          >
+          <form>
             <div>
               <label
-                class="block text-sm font-semibold text-slate-700"
+                class="text-sm font-semibold"
                 for="username"
               >
                 Username
               </label>
-              <div
-                class="mt-1"
-              >
-                <input
-                  class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-                  id="username"
-                  name="username"
-                  placeholder="User"
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+                data-testid="username"
+                id="username"
+                name="username"
+                placeholder="User"
+                type="text"
+                value=""
+              />
             </div>
             <div
-              class="mt-6"
+              class="mt-4"
             >
               <label
-                class="block text-sm font-semibold text-slate-700"
+                class="text-sm font-semibold"
                 for="password"
               >
                 Password
               </label>
-              <div
-                class="mt-1"
-              >
-                <input
-                  class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  value=""
-                />
-              </div>
+              <input
+                class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+                data-testid="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                type="password"
+                value=""
+              />
             </div>
             <div
-              class="mt-6 text-center"
+              class="mt-4 text-center"
             >
               <button
                 class="bg-stone-400 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
+                data-testid="submit"
                 type="submit"
               >
                 Submit
@@ -78,31 +72,151 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="flex flex-col items-center justify-center bg-gray-100"
+      class="flex flex-col items-center justify-center"
     >
       <div
-        class="w-full px-6 py-8 bg-white rounded-md"
+        class="w-full px-6 py-8 rounded-md"
       >
         <h2
           class="text-2xl font-bold mb-8"
+          data-testid="login-header"
         >
           Employee Polls
         </h2>
-        <form
-          class="space-y-4"
-        >
+        <form>
           <div>
             <label
-              class="block text-sm font-semibold text-slate-700"
+              class="text-sm font-semibold"
               for="username"
             >
               Username
             </label>
-            <div
-              class="mt-1"
+            <input
+              class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+              data-testid="username"
+              id="username"
+              name="username"
+              placeholder="User"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="mt-4"
+          >
+            <label
+              class="text-sm font-semibold"
+              for="password"
             >
+              Password
+            </label>
+            <input
+              class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+              data-testid="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            class="mt-4 text-center"
+          >
+            <button
+              class="bg-stone-400 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
+              data-testid="submit"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Login should render the component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col items-center justify-center"
+      >
+        <div
+          class="w-full px-6 py-8 rounded-md"
+        >
+          <h2
+            class="text-2xl font-bold mb-8"
+            data-testid="login-header"
+          >
+            Employee Polls
+          </h2>
+          <form>
+            <div>
+              <label
+                class="text-sm font-semibold"
+                for="username"
+              >
+                Username
+              </label>
               <input
-                class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+                class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+                data-testid="username"
                 id="username"
                 name="username"
                 placeholder="User"
@@ -110,21 +224,18 @@ Object {
                 value=""
               />
             </div>
-          </div>
-          <div
-            class="mt-6"
-          >
-            <label
-              class="block text-sm font-semibold text-slate-700"
-              for="password"
-            >
-              Password
-            </label>
             <div
-              class="mt-1"
+              class="mt-4"
             >
+              <label
+                class="text-sm font-semibold"
+                for="password"
+              >
+                Password
+              </label>
               <input
-                class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+                class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+                data-testid="password"
                 id="password"
                 name="password"
                 placeholder="Password"
@@ -132,12 +243,78 @@ Object {
                 value=""
               />
             </div>
+            <div
+              class="mt-4 text-center"
+            >
+              <button
+                class="bg-stone-400 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
+                data-testid="submit"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col items-center justify-center"
+    >
+      <div
+        class="w-full px-6 py-8 rounded-md"
+      >
+        <h2
+          class="text-2xl font-bold mb-8"
+          data-testid="login-header"
+        >
+          Employee Polls
+        </h2>
+        <form>
+          <div>
+            <label
+              class="text-sm font-semibold"
+              for="username"
+            >
+              Username
+            </label>
+            <input
+              class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+              data-testid="username"
+              id="username"
+              name="username"
+              placeholder="User"
+              type="text"
+              value=""
+            />
           </div>
           <div
-            class="mt-6 text-center"
+            class="mt-4"
+          >
+            <label
+              class="text-sm font-semibold"
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              class="w-full rounded-md px-3 py-2 border border-slate-300 mt-2"
+              data-testid="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            class="mt-4 text-center"
           >
             <button
               class="bg-stone-400 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
+              data-testid="submit"
               type="submit"
             >
               Submit

@@ -54,7 +54,7 @@ const Home = () => {
     }
 
     return (
-        <div className="p-6">
+        <div className="p-6" data-testid="home-header">
             <div className="mb-3 text-right">
                 <button
                     type="button"

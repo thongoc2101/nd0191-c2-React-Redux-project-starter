@@ -44,8 +44,12 @@ const New = () => {
 
                 <div className="mt-3">
                     <label htmlFor="firstOption"
-                        className="block text-sm font-bold">First Option</label>
+                        className="block text-sm font-bold"
+                        data-testid="firstOptionLabel">
+                        First Option
+                    </label>
                     <input
+                        data-testid="firstOption"
                         value={firstOption}
                         onChange={(e) => setFirstOption(e.target.value)}
                         type="text"
@@ -57,8 +61,10 @@ const New = () => {
 
                 <div className="mt-3">
                     <label htmlFor="secondOption"
+                        data-testid="secondOptionLabel"
                         className="block text-sm font-bold">Second Option</label>
                     <input
+                        data-testid="secondOption"
                         value={secondOption}
                         onChange={(e) => setSecondOption(e.target.value)}
                         type="text"
@@ -75,7 +81,7 @@ const New = () => {
                 }
 
                 <div className="mt-5 text-right">
-                    <button type="submit" disabled={!firstOption || !secondOption}
+                    <button type="submit" data-testid="submit-new-poll" disabled={!firstOption || !secondOption}
                         className="bg-sky-500 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white disabled:bg-slate-500 disabled:text-white disabled:cursor-not-allowed">
                         Submit
                     </button>
