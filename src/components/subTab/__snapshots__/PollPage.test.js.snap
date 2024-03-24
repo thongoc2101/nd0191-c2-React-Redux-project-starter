@@ -10,6 +10,7 @@ Object {
       >
         <h1
           class="text-2xl font-bold mt-9"
+          data-testid="pollPage-header"
         >
           Poll by 
         </h1>
@@ -39,11 +40,14 @@ Object {
             <p
               class="mb-2"
             />
-            <p
-              class="bg-sky-500 rounded-md"
-            >
-              Click
-            </p>
+            <div>
+              <p
+                class="bg-sky-500 rounded-md"
+                data-testid="submit-optionOne"
+              >
+                Click
+              </p>
+            </div>
           </button>
           <button
             class="p-2 rounded-xl bg-white border border-solid"
@@ -51,11 +55,14 @@ Object {
             <p
               class="mb-2"
             />
-            <p
-              class="bg-sky-500 rounded-md"
-            >
-              Click
-            </p>
+            <div>
+              <p
+                class="bg-sky-500 rounded-md"
+                data-testid="submit-optionTwo"
+              >
+                Click
+              </p>
+            </div>
           </button>
         </div>
       </div>
@@ -67,6 +74,7 @@ Object {
     >
       <h1
         class="text-2xl font-bold mt-9"
+        data-testid="pollPage-header"
       >
         Poll by 
       </h1>
@@ -96,11 +104,14 @@ Object {
           <p
             class="mb-2"
           />
-          <p
-            class="bg-sky-500 rounded-md"
-          >
-            Click
-          </p>
+          <div>
+            <p
+              class="bg-sky-500 rounded-md"
+              data-testid="submit-optionOne"
+            >
+              Click
+            </p>
+          </div>
         </button>
         <button
           class="p-2 rounded-xl bg-white border border-solid"
@@ -108,11 +119,199 @@ Object {
           <p
             class="mb-2"
           />
-          <p
-            class="bg-sky-500 rounded-md"
+          <div>
+            <p
+              class="bg-sky-500 rounded-md"
+              data-testid="submit-optionTwo"
+            >
+              Click
+            </p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PollPage should save question answer when click votes 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="poll-page-information"
+      >
+        <h1
+          class="text-2xl font-bold mt-9"
+          data-testid="pollPage-header"
+        >
+          Poll by 
+        </h1>
+        <div
+          class="flex justify-center"
+        >
+          <img
+            alt=""
+            class="h-20 w-20"
+          />
+        </div>
+        <div
+          class="flex justify-center"
+        >
+          <h2
+            class="text-2xl font-bold mt-6"
           >
-            Click
-          </p>
+            Would you rather?
+          </h2>
+        </div>
+        <div
+          class="grid grid-cols-2 gap-4 mt-4"
+        >
+          <button
+            class="p-2 rounded-xl bg-white border border-solid"
+          >
+            <p
+              class="mb-2"
+            />
+            <div>
+              <p
+                class="bg-sky-500 rounded-md"
+                data-testid="submit-optionOne"
+              >
+                Click
+              </p>
+            </div>
+          </button>
+          <button
+            class="p-2 rounded-xl bg-white border border-solid"
+          >
+            <p
+              class="mb-2"
+            />
+            <div>
+              <p
+                class="bg-sky-500 rounded-md"
+                data-testid="submit-optionTwo"
+              >
+                Click
+              </p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="poll-page-information"
+    >
+      <h1
+        class="text-2xl font-bold mt-9"
+        data-testid="pollPage-header"
+      >
+        Poll by 
+      </h1>
+      <div
+        class="flex justify-center"
+      >
+        <img
+          alt=""
+          class="h-20 w-20"
+        />
+      </div>
+      <div
+        class="flex justify-center"
+      >
+        <h2
+          class="text-2xl font-bold mt-6"
+        >
+          Would you rather?
+        </h2>
+      </div>
+      <div
+        class="grid grid-cols-2 gap-4 mt-4"
+      >
+        <button
+          class="p-2 rounded-xl bg-white border border-solid"
+        >
+          <p
+            class="mb-2"
+          />
+          <div>
+            <p
+              class="bg-sky-500 rounded-md"
+              data-testid="submit-optionOne"
+            >
+              Click
+            </p>
+          </div>
+        </button>
+        <button
+          class="p-2 rounded-xl bg-white border border-solid"
+        >
+          <p
+            class="mb-2"
+          />
+          <div>
+            <p
+              class="bg-sky-500 rounded-md"
+              data-testid="submit-optionTwo"
+            >
+              Click
+            </p>
+          </div>
         </button>
       </div>
     </div>

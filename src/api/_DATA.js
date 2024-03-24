@@ -186,24 +186,24 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 
     setTimeout(() => {
       users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          answers: {
-            ...users[authedUser].answers,
-            [qid]: answer
-          }
+      ...users,
+      [authedUser]: {
+      ...users[authedUser],
+      answers: {
+      ...users[authedUser].answers,
+      [qid]: answer
+      }
         }
       }
 
       questions = {
-        ...questions,
-        [qid]: {
-          ...questions[qid],
-          [answer]: {
-            ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser])
-          }
+      ...questions,
+      [qid]: {
+      ...questions[qid],
+      [answer]: {
+      ...questions[qid][answer],
+      votes: questions[qid][answer].votes.concat([authedUser])
+      }
         }
       }
 

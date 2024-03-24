@@ -20,7 +20,7 @@ export const QuestionSlice = createSlice({
                   ...state.questions[qid],
                   [answer]: {
                     ...state.questions[qid][answer],
-                    votes: state.questions[qid][answer].votes.push(authedUser)
+                    votes: [...state.questions[qid][answer].votes, authedUser]
                   }
                 }
               }

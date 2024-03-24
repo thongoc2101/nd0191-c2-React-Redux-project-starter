@@ -37,15 +37,18 @@ const PollPage = () => {
 
     const handleChangeOption = (e, optionChoose) => {
         e.preventDefault();
-        dispatch(QuestionActions.saveQuestionAnswer({
-            qid: question.id, answer: optionChoose, authedUser: userInfo.id
-        })).then((res) => {
-            if (res) {
-                dispatch(setAnsweredUser({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
-                dispatch(setUserAnswer({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
-                getQuestionsInfo();
-            }
-        })
+
+        if (question && userInfo) {
+            dispatch(QuestionActions.saveQuestionAnswer({
+                qid: question.id, answer: optionChoose, authedUser: userInfo.id
+            })).then((res) => {
+                if (res) {
+                    dispatch(setAnsweredUser({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
+                    dispatch(setUserAnswer({ id: question.id, answer: optionChoose, authedUser: userInfo.id }));
+                    getQuestionsInfo();
+                }
+            })
+        }
     };
 
     const calcVotes = (option, question) => {
@@ -62,10 +65,10 @@ const PollPage = () => {
 
     const renderTemplateVoted = (question, numberVotes, option) => {
         return (
-            <>
-                {!hasVoted && <p className="bg-sky-500 rounded-md">Click</p>}
+            <div key={option + 'template'}>
+                {!hasVoted && <p className="bg-sky-500 rounded-md" data-testid={'submit-' + option}>Click</p>}
                 {hasVoted && <p className="text-xs">Votes: {numberVotes} ({calcVotes(option, question)})</p>}
-            </>
+            </div>
         )
     }
 
@@ -76,7 +79,7 @@ const PollPage = () => {
 
     return (
         <div className="poll-page-information">
-            <h1 className="text-2xl font-bold mt-9">Poll by {question?.author}</h1>
+            <h1 className="text-2xl font-bold mt-9" data-testid="pollPage-header">Poll by {question?.author}</h1>
 
             <div className="flex justify-center">
                 <img src={userInfo.avatarURL} alt="" className="h-20 w-20" />
